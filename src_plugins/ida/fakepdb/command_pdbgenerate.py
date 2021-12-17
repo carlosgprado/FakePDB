@@ -58,7 +58,8 @@ class __fakepdb_pdbgeneration_actionhandler(ida_kernwin.action_handler_t):
         idb_dir = os.path.dirname(ida_loader.get_path(ida_loader.PATH_TYPE_IDB))
         pe_filename, _ = os.path.splitext(ida_nalt.get_root_filename())
 
-        filepath_exe  = ida_nalt.get_input_file_path()
+        # filepath_exe  = ida_nalt.get_input_file_path()
+        filepath_exe = ida_kernwin.ask_file(False, "*.*", "Original binary file")
         filepath_json = os.path.join(idb_dir, pe_filename_ext + ".json")
         filepath_pdb  = os.path.join(idb_dir, pe_filename + ".pdb")
 
